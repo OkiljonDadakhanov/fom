@@ -30,25 +30,31 @@ export function Header() {
             </Link>
             <nav className="hidden md:flex gap-8 text-lg">
               <Link
+                href="/"
+                className="hover:text-primary-foreground/80 transition-colors"
+              >
+                Home
+              </Link>
+              <Link
                 href="/about"
                 className="hover:text-primary-foreground/80 transition-colors"
               >
                 About
               </Link>
               <Link
-                href="/courses"
+                href="/statistics"
                 className="hover:text-primary-foreground/80 transition-colors"
               >
-                Courses
+                Statistics
               </Link>
               <Link
-                href="/events"
+                href="/olimpiads"
                 className="hover:text-primary-foreground/80 transition-colors"
               >
-                Events
+                Olimpiads
               </Link>
               <Link
-                href="/resources"
+                href="/methodology"
                 className="hover:text-primary-foreground/80 transition-colors"
               >
                 Resources

@@ -36,7 +36,7 @@ const slides = [
     buttonText: "View Programs",
     secondaryButtonText: "Contact Us",
     image:
-      "https://images.unsplash.com/photo-1581093458791-9f3c3900fbdb?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 3,
@@ -188,14 +188,14 @@ export function HeroSlider() {
                       <div className="flex flex-wrap gap-4 pt-2 animate-fade-in-delay-long">
                         <Button
                           size="lg"
-                          className="bg-white text-[#0E3150] hover:bg-white/90 transition-all duration-300 font-medium text-base shadow-lg hover:shadow-xl"
+                          className=" cursor-pointer bg-white text-[#0E3150] hover:bg-white/90 transition-all duration-300 font-medium text-base shadow-lg hover:shadow-xl"
                         >
                           {slide.buttonText}
                         </Button>
                         <Button
                           size="lg"
                           variant="outline"
-                          className="border-white text-white hover:bg-white/10 transition-all duration-300 text-base backdrop-blur-sm"
+                          className="cursor-pointer border-white text-[#0E3150] hover:bg-white/10 transition-all duration-300 text-base backdrop-blur-sm"
                         >
                           {slide.secondaryButtonText}
                         </Button>
