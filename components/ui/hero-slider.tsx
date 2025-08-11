@@ -67,12 +67,13 @@ export function HeroSlider() {
       setWindowHeight(window.innerHeight);
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Calculate hero height (subtract header height)
-  const heroHeight = windowHeight > 0 ? windowHeight - 64 : 'calc(100vh - 64px)';
+  const heroHeight =
+    windowHeight > 0 ? windowHeight - 64 : "calc(100vh - 64px)";
 
   // Set up autoplay
   useEffect(() => {
@@ -118,7 +119,7 @@ export function HeroSlider() {
       {/* Custom navigation arrows - positioned on left and right sides */}
       <button
         onClick={() => api?.scrollPrev()}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 h-10 w-10 md:h-12 md:w-12 rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50"
+        className="cursor-pointer absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 h-10 w-10 md:h-12 md:w-12 rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50"
         aria-label="Previous slide"
       >
         <ChevronLeft className="h-6 w-6 md:h-7 md:w-7" />
@@ -126,7 +127,7 @@ export function HeroSlider() {
 
       <button
         onClick={() => api?.scrollNext()}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 h-10 w-10 md:h-12 md:w-12 rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50"
+        className="cursor-pointer absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 h-10 w-10 md:h-12 md:w-12 rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50"
         aria-label="Next slide"
       >
         <ChevronRight className="h-6 w-6 md:h-7 md:w-7" />

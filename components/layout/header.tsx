@@ -6,6 +6,7 @@ import { ThemeToggle } from "../theme/theme-toggle";
 import { Menu } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Sidebar } from "./sidebar";
+import Image from "next/image";
 
 export function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -14,17 +15,20 @@ export function Header() {
     <>
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <header className="sticky top-0 z-50 w-full border-b bg-[#0E3150] dark:bg-[#010B2B] text-white">
-        <Container className="flex h-16 items-center justify-between">
-          <div className="flex items-center gap-6">
+        {/* Increased height from h-16 → h-20 */}
+        <Container className="flex h-20 items-center justify-between">
+          <div className="flex items-center gap-8">
+            {/* Increased icon size */}
             <Menu
-              className="w-6 h-6 hover:cursor-pointer"
+              className="w-8 h-8 hover:cursor-pointer"
               data-menu-button
               onClick={() => setSidebarOpen(!sidebarOpen)}
             />
-            <Link href="/" className="font-bold text-xl">
-              Science Olympiads
+            {/* Increased font size from text-xl → text-2xl */}
+            <Link href="/" className="font-bold text-2xl">
+              Science Olympiad Center
             </Link>
-            <nav className="hidden md:flex gap-6">
+            <nav className="hidden md:flex gap-8 text-lg">
               <Link
                 href="/about"
                 className="hover:text-primary-foreground/80 transition-colors"
@@ -52,10 +56,19 @@ export function Header() {
             </nav>
           </div>
           <div className="flex items-center gap-4">
-            <ThemeToggle />
             <div className="flex items-center gap-2">
-              <h1 className="font-bold">Logo</h1>
+              {/* Increased logo text size */}
+              <Link href="/" className="text-lg font-semibold">
+                <Image
+                  src="/images/logo.png"
+                  alt="Logo"
+                  width={100}
+                  height={100}
+                  className="rounded-full"
+                />
+              </Link>
             </div>
+            <ThemeToggle />
           </div>
         </Container>
       </header>
