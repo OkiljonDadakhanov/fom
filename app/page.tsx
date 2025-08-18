@@ -31,8 +31,8 @@ export default function Home() {
           <StatisticsSection />
         </AnimatedSection>
 
-        {/* Interactive Map Section */}
-        {/* <InteractiveMap />  */}
+                 {/* Interactive Map Section */}
+         <InteractiveMap />
 
         {/* Sponsors Section */}
         <AnimatedSection delay={0.5}>

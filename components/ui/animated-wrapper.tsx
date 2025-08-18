@@ -12,7 +12,7 @@ interface AnimatedWrapperProps {
     duration?: number;
     threshold?: number;
     once?: boolean;
-    as?: keyof JSX.IntrinsicElements;
+    as?: keyof React.JSX.IntrinsicElements;
 }
 
 export function AnimatedWrapper({
@@ -27,7 +27,7 @@ export function AnimatedWrapper({
 }: AnimatedWrapperProps) {
     const ref = useRef(null);
     const isInView = useInView(ref, {
-        threshold,
+        amount: threshold,
         once,
     });
 

@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { AnimatedSection } from "./animated-wrapper";
+import { LoadingSpinner } from "./loading-spinner";
 
 // Fix for default markers in React Leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -54,75 +55,15 @@ interface Location {
 const locations: Location[] = [
     {
         id: 1,
-        name: "National Science Olympiad Center",
+        name: "Science Olympiads Center - Main Office",
         type: "science-center",
-        coordinates: [51.5074, -0.1278], // London
-        description: "Main headquarters for national science olympiad programs and training facilities.",
-        address: "123 Science Street, London, UK",
-        phone: "+44 20 7123 4567",
-        email: "info@scienceolympiad.uk",
-        website: "https://scienceolympiad.uk",
+        coordinates: [41.2995, 69.2401], // Tashkent, Uzbekistan
+        description: "Main headquarters for science olympiad programs and training facilities in Uzbekistan.",
+        address: "123 Science Street, Tashkent, Uzbekistan",
+        phone: "+998 71 123 4567",
+        email: "info@scienceolympiad.uz",
+        website: "https://scienceolympiad.uz",
         programs: ["IBO Training", "IMO Preparation", "Chemistry Labs", "Physics Workshops"]
-    },
-    {
-        id: 2,
-        name: "Cambridge University Science Department",
-        type: "university",
-        coordinates: [52.2053, 0.1218], // Cambridge
-        description: "Prestigious university offering advanced science programs and olympiad preparation courses.",
-        address: "University of Cambridge, Cambridge, UK",
-        phone: "+44 1223 337733",
-        email: "science@cam.ac.uk",
-        website: "https://www.cam.ac.uk",
-        programs: ["Advanced Mathematics", "Physics Research", "Chemistry Studies", "Biology Labs"]
-    },
-    {
-        id: 3,
-        name: "Oxford Science Competition Center",
-        type: "competition",
-        coordinates: [51.7520, -1.2577], // Oxford
-        description: "Annual venue for international science competitions and student exhibitions.",
-        address: "Oxford Science Park, Oxford, UK",
-        phone: "+44 1865 270000",
-        email: "competitions@oxfordscience.org",
-        website: "https://oxfordscience.org",
-        programs: ["International Competitions", "Student Exhibitions", "Science Fairs", "Award Ceremonies"]
-    },
-    {
-        id: 4,
-        name: "Manchester Science Academy",
-        type: "science-center",
-        coordinates: [53.4808, -2.2426], // Manchester
-        description: "Specialized academy for young scientists with state-of-the-art laboratories.",
-        address: "45 Innovation Drive, Manchester, UK",
-        phone: "+44 161 234 5678",
-        email: "academy@manchesterscience.org",
-        website: "https://manchesterscience.org",
-        programs: ["Young Scientists Program", "Laboratory Training", "Research Projects", "Mentorship"]
-    },
-    {
-        id: 5,
-        name: "Edinburgh University Science Hub",
-        type: "university",
-        coordinates: [55.9533, -3.1883], // Edinburgh
-        description: "Research hub focusing on cutting-edge scientific discoveries and student development.",
-        address: "University of Edinburgh, Edinburgh, UK",
-        phone: "+44 131 650 1000",
-        email: "sciencehub@ed.ac.uk",
-        website: "https://www.ed.ac.uk",
-        programs: ["Research Programs", "Student Development", "International Collaboration", "Innovation Labs"]
-    },
-    {
-        id: 6,
-        name: "Birmingham Science Festival",
-        type: "competition",
-        coordinates: [52.4862, -1.8904], // Birmingham
-        description: "Annual science festival showcasing student projects and scientific innovations.",
-        address: "Birmingham Science Quarter, Birmingham, UK",
-        phone: "+44 121 234 5678",
-        email: "festival@birminghamscience.org",
-        website: "https://birminghamscience.org",
-        programs: ["Science Festival", "Student Projects", "Innovation Showcase", "Networking Events"]
     }
 ];
 
@@ -154,7 +95,7 @@ export function InteractiveMap() {
             case "competition":
                 return competitionIcon;
             default:
-                return L.Icon.Default;
+                return scienceCenterIcon;
         }
     };
 
@@ -176,10 +117,10 @@ export function InteractiveMap() {
             <AnimatedSection className="py-16 md:py-24 bg-muted/30">
                 <div className="container mx-auto px-4">
                     <div className="text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Network</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
                         <p className="text-muted-foreground mb-8">Loading interactive map...</p>
                         <div className="h-96 bg-muted rounded-lg flex items-center justify-center">
-                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+                            <LoadingSpinner size="lg" />
                         </div>
                     </div>
                 </div>
@@ -190,36 +131,71 @@ export function InteractiveMap() {
     return (
         <AnimatedSection className="py-16 md:py-24 bg-muted/30">
             <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Network</h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto">
-                        Discover our network of science centers, universities, and competition venues across the country.
-                        Each location offers unique programs and opportunities for young scientists.
-                    </p>
-                </div>
+                                 <div className="text-center mb-12">
+                     <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+                     <p className="text-muted-foreground max-w-2xl mx-auto">
+                         Visit our main office in Tashkent, Uzbekistan. We're here to help you with all your science olympiad needs.
+                     </p>
+                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-                    <div className="flex items-center gap-3">
-                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
-                        <span className="text-sm font-medium">Science Centers</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                        <div className="w-4 h-4 bg-green-600 rounded-full"></div>
-                        <span className="text-sm font-medium">Universities</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                        <div className="w-4 h-4 bg-amber-600 rounded-full"></div>
-                        <span className="text-sm font-medium">Competition Venues</span>
-                    </div>
-                </div>
+                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                     <div className="space-y-6">
+                         <div>
+                             <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
+                             <div className="space-y-4">
+                                 <div className="flex items-start gap-3">
+                                     <div className="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 mt-1"></div>
+                                     <div>
+                                         <p className="font-medium">Address</p>
+                                         <p className="text-muted-foreground">123 Science Street, Tashkent, Uzbekistan</p>
+                                     </div>
+                                 </div>
+                                 <div className="flex items-start gap-3">
+                                     <div className="w-6 h-6 bg-green-600 rounded-full flex-shrink-0 mt-1"></div>
+                                     <div>
+                                         <p className="font-medium">Phone</p>
+                                         <p className="text-muted-foreground">+998 71 123 4567</p>
+                                     </div>
+                                 </div>
+                                 <div className="flex items-start gap-3">
+                                     <div className="w-6 h-6 bg-amber-600 rounded-full flex-shrink-0 mt-1"></div>
+                                     <div>
+                                         <p className="font-medium">Email</p>
+                                         <p className="text-muted-foreground">info@scienceolympiad.uz</p>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div className="space-y-6">
+                         <div>
+                             <h3 className="text-xl font-semibold mb-4">Office Hours</h3>
+                             <div className="space-y-2 text-muted-foreground">
+                                 <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</p>
+                                 <p><strong>Saturday:</strong> 10:00 AM - 4:00 PM</p>
+                                 <p><strong>Sunday:</strong> Closed</p>
+                             </div>
+                         </div>
+                         <div>
+                             <h3 className="text-xl font-semibold mb-4">Services</h3>
+                             <ul className="space-y-2 text-muted-foreground">
+                                 <li>• IBO Training Programs</li>
+                                 <li>• IMO Preparation Courses</li>
+                                 <li>• Chemistry Laboratory Sessions</li>
+                                 <li>• Physics Workshops</li>
+                                 <li>• Student Consultations</li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
 
                 <div className="relative">
-                    <MapContainer
-                        center={[52.3555, -1.1743]}
-                        zoom={6}
-                        className="h-96 md:h-[500px] w-full rounded-lg shadow-lg"
-                        style={{ zIndex: 1 }}
-                    >
+                                         <MapContainer
+                         center={[41.2995, 69.2401]}
+                         zoom={13}
+                         className="h-96 md:h-[500px] w-full rounded-lg shadow-lg"
+                         style={{ zIndex: 1 }}
+                     >
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -274,11 +250,11 @@ export function InteractiveMap() {
                     </MapContainer>
                 </div>
 
-                <div className="mt-8 text-center">
-                    <p className="text-sm text-muted-foreground">
-                        Click on any marker to learn more about our locations and programs.
-                    </p>
-                </div>
+                                 <div className="mt-8 text-center">
+                     <p className="text-sm text-muted-foreground">
+                         Click on the marker to see our office location and contact information.
+                     </p>
+                 </div>
             </div>
         </AnimatedSection>
     );
