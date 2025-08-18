@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -175,31 +176,56 @@ export function HeroSlider() {
                   <div className="max-w-4xl px-4 py-12 md:py-0">
                     <div className="flex flex-col gap-4 sm:gap-8">
                       {/* Animated title with staggered entrance */}
-                      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight animate-fade-in">
+                      <motion.h1
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      >
                         {slide.title}
-                      </h1>
+                      </motion.h1>
 
                       {/* Description with subtle animation */}
-                      <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-2xl animate-fade-in-delay">
+                      <motion.p
+                        className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-2xl"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                      >
                         {slide.description}
-                      </p>
+                      </motion.p>
 
                       {/* Buttons with hover effects */}
-                      <div className="flex flex-wrap gap-4 pt-2 animate-fade-in-delay-long">
-                        <Button
-                          size="lg"
-                          className=" cursor-pointer bg-white text-[#0E3150] hover:bg-white/90 transition-all duration-300 font-medium text-base shadow-lg hover:shadow-xl"
+                      <motion.div
+                        className="flex flex-wrap gap-4 pt-2"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                      >
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
                         >
-                          {slide.buttonText}
-                        </Button>
-                        <Button
-                          size="lg"
-                          variant="outline"
-                          className="cursor-pointer border-white text-[#0E3150] hover:bg-white/10 transition-all duration-300 text-base backdrop-blur-sm"
+                          <Button
+                            size="lg"
+                            className=" cursor-pointer bg-white text-[#0E3150] hover:bg-white/90 transition-all duration-300 font-medium text-base shadow-lg hover:shadow-xl"
+                          >
+                            {slide.buttonText}
+                          </Button>
+                        </motion.div>
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
                         >
-                          {slide.secondaryButtonText}
-                        </Button>
-                      </div>
+                          <Button
+                            size="lg"
+                            variant="outline"
+                            className="cursor-pointer border-white text-[#0E3150] hover:bg-white/10 transition-all duration-300 text-base backdrop-blur-sm"
+                          >
+                            {slide.secondaryButtonText}
+                          </Button>
+                        </motion.div>
+                      </motion.div>
                     </div>
                   </div>
                 </Container>
@@ -220,11 +246,10 @@ export function HeroSlider() {
             {slides.map((_, index) => (
               <button
                 key={index}
-                className={`relative h-2.5 transition-all duration-300 ${
-                  current === index
+                className={`relative h-2.5 transition-all duration-300 ${current === index
                     ? "w-8 bg-white"
                     : "w-2.5 bg-white/40 hover:bg-white/60"
-                } rounded-full`}
+                  } rounded-full`}
                 onClick={() => goToSlide(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />

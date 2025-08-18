@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/container";
 import { ChevronRight } from "lucide-react";
 
@@ -142,54 +143,79 @@ export default function OlympiadsCategories() {
         {/* Category Tabs */}
         <div className="flex overflow-x-auto mb-8 scrollbar-hide">
           <div className="flex flex-wrap gap-2 min-w-full">
-            {categories.map((category) => (
-              <button
+            {categories.map((category, index) => (
+              <motion.button
                 key={category.id}
-                className={`px-6 py-3 whitespace-nowrap transition-colors duration-200 ${
-                  activeCategory === category.id
+                className={`px-6 py-3 whitespace-nowrap transition-colors duration-200 ${activeCategory === category.id
                     ? `bg-[${category.color}] ${category.textColor}`
                     : "bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200"
-                }`}
+                  }`}
                 onClick={() => setActiveCategory(category.id)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {category.name}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
 
         {/* Olympiads Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {filteredOlympiads.map((olympiad) => (
-            <div
-              key={olympiad.id}
-              className="flex items-start gap-6 group hover:bg-gray-50 dark:hover:bg-gray-900 p-4 rounded-lg transition-colors duration-200"
-            >
-              {/* Olympiad Image */}
-              <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
-                <Image
-                  src={olympiad.fallbackImage}
-                  alt={olympiad.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            {filteredOlympiads.map((olympiad, index) => (
+              <motion.div
+                key={olympiad.id}
+                className="flex items-start gap-6 group hover:bg-gray-50 dark:hover:bg-gray-900 p-4 rounded-lg transition-colors duration-200"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.02, y: -5 }}
+              >
+                {/* Olympiad Image */}
+                <motion.div
+                  className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Image
+                    src={olympiad.fallbackImage}
+                    alt={olympiad.name}
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
 
-              {/* Olympiad Content */}
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2">{olympiad.name}</h3>
-                <p className="text-muted-foreground text-sm mb-3 line-clamp-2">
-                  {olympiad.description}
-                </p>
-                <div className="flex justify-end">
-                  <button className="text-blue-600 dark:text-blue-400 flex items-center text-sm font-medium group-hover:underline">
-                    Learn more <ChevronRight className="h-4 w-4 ml-1" />
-                  </button>
+                {/* Olympiad Content */}
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold mb-2">{olympiad.name}</h3>
+                  <p className="text-muted-foreground text-sm mb-3 line-clamp-2">
+                    {olympiad.description}
+                  </p>
+                  <div className="flex justify-end">
+                    <motion.button
+                      className="text-blue-600 dark:text-blue-400 flex items-center text-sm font-medium group-hover:underline"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Learn more <ChevronRight className="h-4 w-4 ml-1" />
+                    </motion.button>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </Container>
     </section>
   );

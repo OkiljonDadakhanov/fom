@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 // Content (no colors here)
@@ -146,38 +147,50 @@ const OlympiadCarousel = () => {
               Key milestones from our community of learners and competitions.
             </p>
 
-            <div
-              className={`grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 transition-all duration-300 ${
-                isAnimating
-                  ? "opacity-0 translate-y-2"
-                  : "opacity-100 translate-y-0"
-              }`}
-            >
-              {statisticsSets[currentStats].map((stat, i) => {
-                let colorClass = palette[i % palette.length];
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentStats}
+                className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                {statisticsSets[currentStats].map((stat, i) => {
+                  let colorClass = palette[i % palette.length];
 
-                if (stat.label.toLowerCase() === "gold") {
-                  colorClass = "text-yellow-500 dark:text-yellow-400";
-                } else if (stat.label.toLowerCase() === "silver") {
-                  colorClass = "text-gray-400 dark:text-gray-300";
-                } else if (stat.label.toLowerCase() === "bronze") {
-                  colorClass = "text-amber-700 dark:text-amber-600";
-                }
+                  if (stat.label.toLowerCase() === "gold") {
+                    colorClass = "text-yellow-500 dark:text-yellow-400";
+                  } else if (stat.label.toLowerCase() === "silver") {
+                    colorClass = "text-gray-400 dark:text-gray-300";
+                  } else if (stat.label.toLowerCase() === "bronze") {
+                    colorClass = "text-amber-700 dark:text-amber-600";
+                  }
 
-                return (
-                  <div key={`${stat.label}-${i}`} className="flex flex-col">
-                    <span
-                      className={`text-4xl md:text-5xl lg:text-6xl font-extrabold ${colorClass}`}
+                  return (
+                    <motion.div
+                      key={`${stat.label}-${i}`}
+                      className="flex flex-col"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
                     >
-                      {stat.value}
-                    </span>
-                    <span className="text-sm md:text-base text-muted-foreground mt-2">
-                      {stat.label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
+                      <motion.span
+                        className={`text-4xl md:text-5xl lg:text-6xl font-extrabold ${colorClass}`}
+                        initial={{ scale: 0.5 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.6, delay: i * 0.1 + 0.2, ease: "easeOut" }}
+                      >
+                        {stat.value}
+                      </motion.span>
+                      <span className="text-sm md:text-base text-muted-foreground mt-2">
+                        {stat.label}
+                      </span>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Featured Card */}
@@ -196,33 +209,34 @@ const OlympiadCarousel = () => {
               <ChevronUp className="h-5 w-5" />
             </button>
 
-            <div
-              className={`
-                relative z-10 rounded-2xl border border-border bg-card p-6 md:p-8 shadow-sm
-                transition-all duration-300
-                ${
-                  isAnimating
-                    ? "opacity-0 -translate-y-2"
-                    : "opacity-100 translate-y-0"
-                }
-              `}
-            >
-              <h3 className="text-2xl font-bold text-foreground mb-3">
-                {olympiads[currentOlympiad].title}
-              </h3>
-              <p className="text-muted-foreground">
-                {olympiads[currentOlympiad].description}
-              </p>
-              <button
-                className="
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentOlympiad}
+                className="relative z-10 rounded-2xl border border-border bg-card p-6 md:p-8 shadow-sm"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-3">
+                  {olympiads[currentOlympiad].title}
+                </h3>
+                <p className="text-muted-foreground">
+                  {olympiads[currentOlympiad].description}
+                </p>
+                <motion.button
+                  className="
                   mt-6 inline-flex items-center rounded-md px-4 py-2
                   bg-primary text-primary-foreground hover:opacity-90
                   transition-opacity
                 "
-              >
-                Learn More
-              </button>
-            </div>
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Learn More
+                </motion.button>
+              </motion.div>
+            </AnimatePresence>
 
             <button
               onClick={handleNext}
@@ -245,9 +259,8 @@ const OlympiadCarousel = () => {
           {olympiads.map((_, i) => (
             <span
               key={i}
-              className={`h-2.5 w-2.5 rounded-full transition-colors ${
-                currentOlympiad === i ? "bg-primary" : "bg-muted-foreground/30"
-              }`}
+              className={`h-2.5 w-2.5 rounded-full transition-colors ${currentOlympiad === i ? "bg-primary" : "bg-muted-foreground/30"
+                }`}
             />
           ))}
         </div>
