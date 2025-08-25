@@ -108,9 +108,9 @@ export function Footer() {
               <Link href="/statistics" className="text-gray-300 hover:text-white transition-colors">
                 Statistics
               </Link>
-              <Link href="/news" className="text-gray-300 hover:text-white transition-colors">
+              {/* <Link href="/news" className="text-gray-300 hover:text-white transition-colors">
                 News / Events
-              </Link>
+              </Link> */}
               <Link href="/olimpiads" className="text-gray-300 hover:text-white transition-colors">
                 Olimpiads
               </Link>
