@@ -111,7 +111,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                   <span>Statistics</span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/news-events"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200"
@@ -120,7 +120,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                   <Calendar className="w-5 h-5" />
                   <span>News / Events</span>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="/olimpiads"

@@ -15,8 +15,7 @@ export function Footer() {
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">Contacts</h2>
               <p className="text-gray-300 max-w-md">
-                Biz bilan bog‘laning va markazimizga tashrif buyuring. Quyidagi xaritada asosiy filialimiz joylashuvi
-                ko‘rsatilgan.
+                Contact us and visit our center. The location of our main branch is shown on the map below.
               </p>
             </div>
 
@@ -72,7 +71,7 @@ export function Footer() {
             >
               <Button className="w-full mt-3 bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600">
                 <ExternalLink className="mr-2 h-4 w-4" />
-                Yo‘nalishni olish
+                Get direction
               </Button>
             </a>
           </div>
