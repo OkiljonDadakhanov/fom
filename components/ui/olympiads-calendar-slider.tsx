@@ -12,62 +12,50 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 
-// Sample data for upcoming olympiads
+// Upcoming olympiads (all English, with links)
 const upcomingOlympiads = [
   {
     id: 1,
-    name: "IMO Olympiad",
-    date: "06/2026",
+    name: "IMO 2026",
+    date: "July 2026",
+    location: "Shanghai, China",
     description:
-      "Nunc neque scelerisque est ornare adipiscing. Id in aliquam non molestia.",
-    color: "#FF3366",
-    category: "Mahally",
+      "International Mathematical Olympiad — the world’s top math contest for high-school students.",
+    color: "#33CC66", // Prestigious
+    category: "Prestigious",
+    link: "https://www.imo-official.org/",
   },
   {
     id: 2,
-    name: "ICHO Olympiad",
-    date: "15/03/2025",
+    name: "IChO 2026",
+    date: "July 2026",
+    location: "Tashkent, Uzbekistan",
     description:
-      "Chemistry olympiad for high school students with practical and theoretical rounds.",
-    color: "#4D7CFE",
-    category: "Mintaqaviy xalqaro",
+      "International Chemistry Olympiad hosted in Tashkent, featuring theoretical and practical exams.",
+    color: "#FF3366", // Local
+    category: "Local",
+    link: "https://www.icho2026.uz/",
   },
   {
     id: 3,
-    name: "ARICHO Olympiad",
-    date: "29/03/2025",
+    name: "IOI 2026",
+    date: "July–August 2026",
+    location: "Tashkent, Uzbekistan",
     description:
-      "Regional science competition focusing on interdisciplinary challenges.",
-    color: "#3366FF",
-    category: "Xalqaro",
-  },
-  {
-    id: 4,
-    name: "IBO Olympiad",
-    date: "21/04/2025",
-    description:
-      "International Biology Olympiad with laboratory experiments and theoretical tests.",
-    color: "#33CC66",
-    category: "Nufuzli xalqaro",
-  },
-  {
-    id: 5,
-    name: "ARICHO Olympiad",
-    date: "10/04/2025",
-    description:
-      "Advanced research and innovation challenge for talented students.",
-    color: "#FF9933",
-    category: "Hamkorlikda",
+      "International Olympiad in Informatics — elite programming/algorithmic contest for secondary students.",
+    color: "#33CC66", // Prestigious
+    category: "Prestigious",
+    link: "https://ioi2026.uz/",
   },
 ];
 
-// Category color mapping
-const categoryColors = {
-  Mahally: "#FF3366",
-  Hamkorlikda: "#FF9933",
-  "Nufuzli xalqaro": "#33CC66",
-  Xalqaro: "#9933CC",
-  "Mintaqaviy xalqaro": "#3399FF",
+// Category color mapping (English)
+const categoryColors: Record<string, string> = {
+  Prestigious: "#33CC66",
+  Local: "#FF3366",
+  International: "#9933CC",
+  "Regional International": "#3399FF",
+  "In Partnership": "#FF9933",
 };
 
 export default function OlympiadsCalendarSlider() {
@@ -199,6 +187,9 @@ export default function OlympiadsCalendarSlider() {
                             <h3 className="font-semibold text-lg">
                               {olympiad.name}
                             </h3>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                              {olympiad.location}
+                            </p>
                           </div>
                         </div>
 
@@ -223,9 +214,14 @@ export default function OlympiadsCalendarSlider() {
                               : "opacity-0"
                           }`}
                         >
-                          <button className="text-sm font-medium flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                          <a
+                            href={olympiad.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-medium flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+                          >
                             Open <ChevronRight className="h-4 w-4 ml-1" />
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>

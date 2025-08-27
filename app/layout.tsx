@@ -16,8 +16,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Science Olympiads Center",
-  description: "Empowering students through science education and competitions",
+  title: "Science Olympiads Center | Fan Olimpiadalar Markazi",
+  description:
+    "Empowering students through science education and competitions. Fan Olimpiadalar Markazi supports students in science olympiads and academic excellence.",
+  keywords: [
+    "Science Olympiads Center",
+    "Fan Olimpiadalar Markazi",
+    "Fan olimpiadasi markazi",
+    "Olimpiada markazi",
+    "Olimpiadalar markazi",
+    "Respublika fan olimpiadasi markazi",
+    "Fan olimpiadalari uchun tayyorgarlik",
+
+    "Olimpiadaga tayyorlov kurslari",
+
+    "Fan olimpiadalari darslari",
+
+    "O‘quvchilar uchun fan olimpiadasi",
+
+    "Maktab o‘quvchilari olimpiadasi",
+    "science olympiad",
+    "academic competitions",
+    "student olympiad",
+    "education center",
+  ],
 };
 
 export default function RootLayout({
