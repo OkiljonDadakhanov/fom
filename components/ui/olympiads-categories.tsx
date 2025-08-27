@@ -29,17 +29,18 @@ const categories = [
     color: "#2563EB",
     textColor: "text-white",
   }, // blue-600
-  {
-    id: "hamkorlikda",
-    name: "In Partnership",
-    active: false,
-    color: "#7C3AED",
-    textColor: "text-white",
-  }, // violet-600
+  // {
+  //   id: "hamkorlikda",
+  //   name: "In Partnership",
+  //   active: false,
+  //   color: "#7C3AED",
+  //   textColor: "text-white",
+  // }, // violet-600
 ];
 
-// Olympiads (logo images wired to /public/images/olympiad-logos + official links)
+// Olympiads (logo images wired to /public/images/olympiad-logos + links)
 const olympiads = [
+  // PRESTIGIOUS
   {
     id: 101,
     name: "IMO — International Mathematical Olympiad",
@@ -55,7 +56,7 @@ const olympiads = [
     description:
       "The leading chemistry competition for school students worldwide. Since 1968, more than 90 countries take part.",
     category: "nufuzli",
-    image: "/images/olympiad-logos/icho.png", // update if your file name differs
+    image: "/images/olympiad-logos/icho.png",
     link: "https://www.ichosc.org/",
   },
   {
@@ -86,25 +87,218 @@ const olympiads = [
     link: "https://www.ibo-info.org/",
   },
 
-  // (Optional) Other categories — sample placeholders
+  // INTERNATIONAL — inserted from your doc
   {
     id: 201,
-    name: "IIO Olympiad",
+    name: "IDO — International German Olympics",
     description:
-      "Sample item describing other international informatics initiatives and competitions.",
+      "The world’s largest German language competition for students aged 14–17, organized by the Goethe-Institut every two years.",
     category: "xalqaro",
-    image: "/images/olympiads/iio.jpg",
-    link: "https://iio.team/",
+    image: "/images/international/german.png",
+    link: "https://www.goethe.de/ins/us/en/sta/chi/ser/afs/ido.html",
   },
   {
-    id: 301,
-    name: "Local Science Olympiad",
+    id: 202,
+    name: "IFLO — International French Language Olympiad",
     description:
-      "A regional-stage, local contest aimed at identifying talented youth.",
-    category: "mahalliy",
-    image: "/images/olympiads/local.jpg",
-    link: "#",
+      "A new global gathering for francophiles to immerse in French language and culture through contests and events.",
+    category: "xalqaro",
+    image: "/images/international/iflo.png",
+    link: "https://iac-exams.com/iflo",
   },
+  {
+    id: 203,
+    name: "SOF IEO — International English Olympiad",
+    description:
+      "Annual English competition by SOF for students in grades 1–12 assessing language and comprehension skills.",
+    category: "xalqaro",
+    image: "/images/international/sof.png",
+    link: "https://sofworld.org/ieo",
+  },
+  {
+    id: 204,
+    name: "iGeo — International Geography Olympiad",
+    description:
+      "Annual contest for the best 16–19-year-old geographers worldwide; finalists emerge from national olympiads.",
+    category: "xalqaro",
+    image: "/images/international/igeo.png",
+    link: "https://www.geoolympiad.org/",
+  },
+  {
+    id: 205,
+    name: "IEO — International Economics Olympiad",
+    description:
+      "Annual competition promoting creative problem-solving in economics, business, and finance for high-school students.",
+    category: "xalqaro",
+    image: "/images/international/economy.png",
+    link: "https://ecolymp.org/",
+  },
+  {
+    id: 206,
+    name: "IAO — International Astronomy Olympiad",
+    description:
+      "Astronomy olympiad bringing together secondary-school students for theoretical and observational challenges.",
+    category: "xalqaro",
+    image: "/images/international/astronomy.png",
+    link: "http://www.issp.ac.ru/iao/",
+  },
+
+  // LOCAL / REGIONAL — your existing items (kept as-is)
+  {
+    id: 301,
+    name: "IZhO — International Zhautykov Olympiad",
+    description:
+      "Team-based olympiad in mathematics, physics and computer science, first held in 2005; emphasizes combined team and individual results.",
+    category: "mahalliy",
+    image: "/images/local/izho.jpg",
+    link: "https://izho.kz/",
+  },
+  {
+    id: 302,
+    name: "CMO — Caucasus Mathematic Olympiad",
+    description:
+      "Builds a shared cultural and educational space for students across the Caucasus and Black Sea region; fosters mathematical friendships.",
+    category: "mahalliy",
+    image: "/images/local/kavkaz.png",
+    link: "https://cmo.adygmath.ru/en/",
+  },
+  {
+    id: 303,
+    name: "BMO — Balkan Mathematical Olympiad",
+    description:
+      "Annual high-school contest among Balkan countries and guests to promote talent and cooperation in mathematics.",
+    category: "mahalliy",
+    image: "/images/local/balkan.png",
+    link: "https://bmo2025.pmf.unsa.ba/",
+  },
+  {
+    id: 304,
+    name: "JBMO — Junior Balkan Mathematical Olympiad",
+    description:
+      "Junior version of BMO; established in the mid-1990s to engage younger students across the region.",
+    category: "mahalliy",
+    image: "/images/local/junior-balkan.png",
+    link: "https://jbmo2025.mk/",
+  },
+  {
+    id: 305,
+    name: "IMC — International Mathematical Competition",
+    description:
+      "Competition for junior-high students with strong interest in math; began with Southeast Asian teams and expanded globally.",
+    category: "mahalliy",
+    image: "/images/local/imc.png",
+    link: "https://www.imc-math.org.uk/",
+  },
+  {
+    id: 306,
+    name: "Mendeleev Chemistry Olympiad",
+    description:
+      "A top-tier chemistry olympiad that holds a unique position among subject competitions for secondary students.",
+    category: "mahalliy",
+    image: "/images/local/mendeleev.png",
+    link: "https://mendeleevolympiad.org/eng",
+  },
+  {
+    id: 307,
+    name: "IJSO — International Junior Science Olympiad",
+    description:
+      "Annual individual and team competition in the natural sciences for students under 16, highlighting science in general education.",
+    category: "mahalliy",
+    image: "/images/local/ijso.png",
+    link: "https://www.ijsoweb.org/",
+  },
+  {
+    id: 308,
+    name: "APhO — Asian Physics Olympiad",
+    description:
+      "Annual physics contest featuring practical and theoretical exams; nations send teams of eight high-school students.",
+    category: "mahalliy",
+    image: "/images/local/apho.png",
+    link: "https://www.apho2025.sa/",
+  },
+  {
+    id: 309,
+    name: "EuPhO — European Physics Olympiad",
+    description:
+      "European physics contest modeled on real research situations, encouraging creative and concise solutions.",
+    category: "mahalliy",
+    image: "/images/local/eupho.png",
+    link: "https://eupho.ee/",
+  },
+  {
+    id: 310,
+    name: "APIO — Asia-Pacific Informatics Olympiad",
+    description:
+      "IOI-style contest for the Asian and Western Pacific regions; first organized in 2007 by the Australian IOI team.",
+    category: "mahalliy",
+    image: "/images/local/apio.png",
+    link: "https://apio2025.uz/",
+  },
+  {
+    id: 311,
+    name: "Al-Farghani International Physics Olympiad",
+    description:
+      "Identifies young physics talents; participants are evaluated by an experienced international jury.",
+    category: "mahalliy",
+    image: "/images/local/fargoniy.png",
+    link: "https://www.uzedu.uz/en/news/436",
+  },
+  {
+    id: 312,
+    name: "ARBIChO — Abu Rayhan Biruni Chemistry Olympiad",
+    description:
+      "Prestigious international chemistry competition promoting scientific excellence and collaboration.",
+    category: "mahalliy",
+    image: "/images/local/beruniy.png",
+    link: "https://www.arbicho.uz/",
+  },
+  {
+    id: 313,
+    name: "AIBO — International Avicenna Olympiad in Biology",
+    description:
+      "Offline biology olympiad for ages 15–18; multiple teams from one country may participate.",
+    category: "mahalliy",
+    image: "/images/local/avicenna.png",
+    link: "https://www.aibo.uz/en",
+  },
+  {
+    id: 314,
+    name: "KHIMIO — Al-Khwarizmi Math & Informatics Olympiad",
+    description:
+      "A venue to test skills and showcase innovative ideas at the intersection of math, informatics and technology.",
+    category: "mahalliy",
+    image: "/images/local/xorazmiy.png",
+    link: "https://www.khimio.uz",
+  },
+  {
+    id: 315,
+    name: "EGOI — European Girls’ Olympiad in Informatics",
+    description:
+      "One-week international CS contest for young women, with two competition days and cultural program.",
+    category: "mahalliy",
+    image: "/images/local/ego.png",
+    link: "https://egoi.org/",
+  },
+  {
+    id: 316,
+    name: "EGMO — European Girls’ Mathematical Olympiad",
+    description:
+      "Premier European mathematics competition for high-school girls; launched in 2012 and now includes 50+ countries.",
+    category: "mahalliy",
+    image: "/images/local/apmo.png",
+    link: "https://www.egmo.org/",
+  },
+  {
+    id: 317,
+    name: "APMO — Asian-Pacific Mathematical Olympiad",
+    description:
+      "Annual math competition for Pacific-rim countries; each nation organizes locally under a national coordinator.",
+    category: "mahalliy",
+    image: "/images/local/egmo.png",
+    link: "https://www.apmo-official.org/",
+  },
+
+  // IN PARTNERSHIP (placeholder)
   {
     id: 401,
     name: "Collaborative Tournament",
@@ -183,7 +377,7 @@ export default function OlympiadsCategories() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02, y: -5 }}
               >
-                {/* Olympiad Logo */}
+                {/* Olympiad Logo / Image */}
                 <motion.div
                   className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0 bg-white ring-1 ring-gray-200 p-3"
                   whileHover={{ scale: 1.08 }}
