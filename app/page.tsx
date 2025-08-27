@@ -40,9 +40,9 @@ export default function Home() {
         </AnimatedSection>
 
         {/* News and Events Section */}
-        {/* <AnimatedSection delay={0.6}>
+        <AnimatedSection delay={0.6}>
           <NewsEvents />
-        </AnimatedSection> */}
+        </AnimatedSection>
 
         {/* FAQ Section */}
         <AnimatedSection delay={0.7}>

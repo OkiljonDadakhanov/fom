@@ -17,7 +17,7 @@ const upcomingOlympiads = [
   {
     id: 1,
     name: "IMO Olympiad",
-    date: "21/03/2025",
+    date: "06/2026",
     description:
       "Nunc neque scelerisque est ornare adipiscing. Id in aliquam non molestia.",
     color: "#FF3366",
