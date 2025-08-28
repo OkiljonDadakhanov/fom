@@ -252,7 +252,7 @@ export function Footer() {
 
                 {isSuccess && (
                   <p className="text-green-400 text-sm text-center animate-pulse">
-                    ✅ Your message has been sent!
+                    ✅ Your message has been sent! Soon we will contact you.
                   </p>
                 )}
               </form>
