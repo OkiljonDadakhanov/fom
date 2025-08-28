@@ -116,7 +116,7 @@ export function HeroSlider() {
   );
 
   return (
-    <div className="relative overflow-hidden group">
+    <div className="relative overflow-hidden group scroll-mt-20" id="home">
       {/* Custom navigation arrows - positioned on left and right sides */}
       <button
         onClick={() => api?.scrollPrev()}
@@ -190,7 +190,11 @@ export function HeroSlider() {
                         className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-2xl"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                        transition={{
+                          duration: 0.8,
+                          delay: 0.2,
+                          ease: "easeOut",
+                        }}
                       >
                         {slide.description}
                       </motion.p>
@@ -200,7 +204,11 @@ export function HeroSlider() {
                         className="flex flex-wrap gap-4 pt-2"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                        transition={{
+                          duration: 0.8,
+                          delay: 0.4,
+                          ease: "easeOut",
+                        }}
                       >
                         <motion.div
                           whileHover={{ scale: 1.05 }}
@@ -246,10 +254,11 @@ export function HeroSlider() {
             {slides.map((_, index) => (
               <button
                 key={index}
-                className={`relative h-2.5 transition-all duration-300 ${current === index
+                className={`relative h-2.5 transition-all duration-300 ${
+                  current === index
                     ? "w-8 bg-white"
                     : "w-2.5 bg-white/40 hover:bg-white/60"
-                  } rounded-full`}
+                } rounded-full`}
                 onClick={() => goToSlide(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />

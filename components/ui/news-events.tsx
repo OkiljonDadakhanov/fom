@@ -98,7 +98,10 @@ export default function NewsEvents() {
       : newsItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50">
+    <section
+      className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50 scroll-mt-20"
+      id="news"
+    >
       <Container>
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">News and Events</h2>

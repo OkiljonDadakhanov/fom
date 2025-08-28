@@ -122,6 +122,7 @@ const OlympiadCarousel = () => {
 
   return (
     <section
+      id="statistics"
       className="
         py-16 md:py-24
         bg-gradient-to-br from-muted/60 via-background to-background
@@ -173,13 +174,21 @@ const OlympiadCarousel = () => {
                       className="flex flex-col"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+                      transition={{
+                        duration: 0.5,
+                        delay: i * 0.1,
+                        ease: "easeOut",
+                      }}
                     >
                       <motion.span
                         className={`text-4xl md:text-5xl lg:text-6xl font-extrabold ${colorClass}`}
                         initial={{ scale: 0.5 }}
                         animate={{ scale: 1 }}
-                        transition={{ duration: 0.6, delay: i * 0.1 + 0.2, ease: "easeOut" }}
+                        transition={{
+                          duration: 0.6,
+                          delay: i * 0.1 + 0.2,
+                          ease: "easeOut",
+                        }}
                       >
                         {stat.value}
                       </motion.span>
@@ -259,8 +268,9 @@ const OlympiadCarousel = () => {
           {olympiads.map((_, i) => (
             <span
               key={i}
-              className={`h-2.5 w-2.5 rounded-full transition-colors ${currentOlympiad === i ? "bg-primary" : "bg-muted-foreground/30"
-                }`}
+              className={`h-2.5 w-2.5 rounded-full transition-colors ${
+                currentOlympiad === i ? "bg-primary" : "bg-muted-foreground/30"
+              }`}
             />
           ))}
         </div>

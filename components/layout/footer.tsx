@@ -72,9 +72,12 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full py-16 bg-[#0E3150] dark:bg-[#010B2B] text-white">
+    <footer
+      className="w-full py-16 bg-[#0E3150] dark:bg-[#010B2B] text-white scroll-mt-20"
+      id="contact"
+    >
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12" id="contact">
           {/* Left Column — Contact Info + Single-branch Map */}
           <div className="space-y-8">
             <div>

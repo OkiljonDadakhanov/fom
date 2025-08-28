@@ -92,7 +92,10 @@ export default function OlympiadsCalendarSlider() {
   );
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900/50 overflow-hidden">
+    <section
+      className="py-16 bg-gray-50 dark:bg-gray-900/50 overflow-hidden"
+      id="calendar"
+    >
       <Container>
         <div className="mb-10 flex flex-wrap items-center justify-between">
           <div>

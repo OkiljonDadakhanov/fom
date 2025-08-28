@@ -319,7 +319,10 @@ export default function OlympiadsCategories() {
   );
 
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-gray-950">
+    <section
+      className="py-16 md:py-24 bg-white dark:bg-gray-950 scroll-mt-20"
+      id="categories"
+    >
       <Container>
         <div className="mb-10">
           <h2 className="text-3xl font-bold mb-3">Olympiad Categories</h2>

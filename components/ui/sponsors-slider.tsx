@@ -100,7 +100,10 @@ export default function SponsorsSlider() {
   }, [api, isHovered, prefersNoMotion]);
 
   return (
-    <section className="py-12 bg-background text-foreground w-full">
+    <section
+      className="py-12 bg-background text-foreground w-full scroll-mt-20"
+      id="partners"
+    >
       <div className="mb-6 flex items-center justify-between px-4 sm:px-8">
         <h2 className="text-xl sm:text-2xl font-semibold tracking-tight">
           Our Partners

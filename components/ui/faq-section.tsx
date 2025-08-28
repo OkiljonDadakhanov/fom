@@ -52,7 +52,10 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-gray-950">
+    <section
+      className="py-16 md:py-24 bg-white dark:bg-gray-950 scroll-mt-20"
+      id="faq"
+    >
       <Container>
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
