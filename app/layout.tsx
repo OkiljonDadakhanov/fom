@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { Loading } from "@/components/ui/loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +59,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Loading minVisibleMs={900} />
+
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
